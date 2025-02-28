@@ -86,13 +86,12 @@
             display: block;
         }
 
-        /* Home Page Styles */
+        /* Home Page */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             background: linear-gradient(45deg, rgba(0,43,91,0.9), rgba(0,87,146,0.9));
             color: white;
             text-align: center;
@@ -103,10 +102,10 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Companies Page */
+        /* Companies Grid */
         .companies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -116,6 +115,10 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             transition: transform 0.3s;
         }
 
@@ -128,19 +131,38 @@
         .mirage-theme { background: #2d3436; color: white; }
         .salt-theme { background: #ff7675; color: white; }
 
-        /* Family Page */
-        .family-grid {
+        .company-cta {
+            margin-top: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Team Page */
+        .team-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .family-member {
-            padding: 2rem;
+        .team-member {
             background: white;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-top: 1rem;
         }
 
         /* Contact Page */
@@ -187,14 +209,23 @@
             padding: 2rem;
             text-align: center;
         }
+
+        @media (max-width: 768px) {
+            .companies-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Designed S Logo -->
     <svg style="display:none;">
         <symbol id="s-logo" viewBox="0 0 100 100">
-            <path d="M20 20 Q50 0 80 20 L80 80 Q50 100 20 80 L20 20" fill="#002B5B"/>
-            <path d="M30 30 L50 70 L70 30" stroke="#00BBF0" stroke-width="8" fill="none"/>
+            <path d="M20 20 Q40 0 60 20 L60 80 Q40 100 20 80 Z" 
+                  fill="#002B5B"/>
+            <path d="M30 30 Q45 20 55 30 L55 70 Q45 80 30 70 Z" 
+                  fill="#00BBF0"/>
         </symbol>
     </svg>
 
@@ -209,7 +240,7 @@
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#companies" class="nav-link">Companies</a>
-                <a href="#family" class="nav-link">Family</a>
+                <a href="#team" class="nav-link">Our Team</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </nav>
@@ -230,58 +261,122 @@
         <div class="companies-grid">
             <div class="company-card vploy-theme">
                 <h3>VPLOY</h3>
-                <p>Global Staffing & Business Process Optimization</p>
-                <p>Headquartered in Ontario, serving North America and Europe</p>
+                <p>Global Workforce Solutions & Business Process Optimization</p>
+                <ul>
+                    <li>Staffing augmentation for North America & Europe</li>
+                    <li>Process optimization specialists</li>
+                    <li>Cost-effective scaling solutions</li>
+                </ul>
+                <a href="https://vploy.us" target="_blank" class="company-cta">
+                    Visit VPLOY.us <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
 
             <div class="company-card aventuer-theme">
                 <h3>La Aventuer</h3>
                 <p>Adventure & Leisure Travel Experts</p>
-                <p>Customized global travel experiences since 2010</p>
+                <ul>
+                    <li>Customized global travel experiences</li>
+                    <li>Destination management specialists</li>
+                    <li>Creating unforgettable journeys since 2010</li>
+                </ul>
             </div>
 
             <div class="company-card mirage-theme">
                 <h3>Mirage Photography</h3>
                 <p>Premium Visual Storytelling</p>
-                <p>Serving corporate, fashion, and special events</p>
+                <ul>
+                    <li>Corporate & fashion photography</li>
+                    <li>High-end videography services</li>
+                    <li>Special event coverage</li>
+                </ul>
             </div>
 
             <div class="company-card salt-theme">
                 <h3>SALT Events</h3>
                 <p>End-to-End Event Management</p>
-                <p>Creating unforgettable experiences worldwide</p>
+                <ul>
+                    <li>Complete event planning & execution</li>
+                    <li>Corporate & social event specialists</li>
+                    <li>Global event management services</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Family Page -->
-    <section id="family" class="page">
-        <div class="family-grid">
-            <div class="family-member">
+    <!-- Team Page -->
+    <section id="team" class="page">
+        <div class="team-grid">
+            <div class="team-member">
                 <h3>Sahabzada Hanif Akhnoohi</h3>
-                <p>Senior Naval Veteran</p>
+                <p class="position">President</p>
                 <ul>
-                    <li>35+ years distinguished service</li>
-                    <li>Recipient of Sitara-e-Imtiaz (Military)</li>
-                    <li>National defense strategy consultant</li>
+                    <li>Decorated Military Veteran</li>
+                    <li>35+ years leadership experience</li>
+                    <li>Expert in Logistics & Financial Operations</li>
                 </ul>
             </div>
 
-            <div class="family-member">
-                <h3>Tassawar Hanif</h3>
-                <p>General Manager PEL | Secretary General PEMA</p>
+            <div class="team-member">
+                <h3>Massawar Hanif Sahabyal</h3>
+                <p class="position">Chairman</p>
+                <a href="https://linkedin.com/in/massawar" target="_blank" class="linkedin-btn">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
                 <ul>
-                    <li>Instrumental in 40% production growth at PEL</li>
-                    <li>Key architect of Electronics Policy 2023</li>
+                    <li>Group Strategy & Vision Architect</li>
+                    <li>20+ years corporate leadership</li>
+                    <li>Global business expansion expert</li>
                 </ul>
             </div>
 
-            <div class="family-member">
+            <div class="team-member">
                 <h3>Sahira Hanif Sahabyal</h3>
-                <p>Service Sector Innovator</p>
+                <p class="position">Chief Executive Officer</p>
                 <ul>
-                    <li>10+ years in premium banking services</li>
-                    <li>Concierge service optimization expert</li>
+                    <li>10+ years operational leadership</li>
+                    <li>Service sector optimization specialist</li>
+                    <li>Customer experience innovator</li>
+                </ul>
+            </div>
+
+            <div class="team-member">
+                <h3>Toni Gomas</h3>
+                <p class="position">Chief Operating Officer</p>
+                <ul>
+                    <li>15+ years in operations management</li>
+                    <li>Process optimization expert</li>
+                    <li>Global supply chain specialist</li>
+                </ul>
+            </div>
+
+            <div class="team-member">
+                <h3>Noor ul Ain</h3>
+                <p class="position">Chief Marketing Officer</p>
+                <ul>
+                    <li>Brand strategy & digital marketing expert</li>
+                    <li>10+ years in creative leadership</li>
+                    <li>Global campaign management</li>
+                </ul>
+            </div>
+
+            <div class="team-member">
+                <h3>Jessie Singh</h3>
+                <p class="position">Head of Sales</p>
+                <ul>
+                    <li>Revenue growth strategist</li>
+                    <li>15+ years in sales leadership</li>
+                    <li>Client relationship expert</li>
+                </ul>
+            </div>
+
+            <div class="team-member">
+                <h3>Haan Solvenic</h3>
+                <p class="position">Head of Operations</p>
+                <ul>
+                    <li>Process optimization specialist</li>
+                    <li>20+ years in operations management</li>
+                    <li>Global delivery expert</li>
                 </ul>
             </div>
         </div>
