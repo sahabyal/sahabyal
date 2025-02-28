@@ -1,63 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahabyal Group - Global Conglomerate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #002B5B;
+            --secondary-color: #005792;
+            --accent-color: #00BBF0;
+            --text-dark: #2B2B2B;
+            --text-light: #FFFFFF;
+        }
 
-  <title>Sahabyal - Coming Soon </title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #f8fafc;
+            overflow-x: hidden;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+        .header {
+            background: var(--text-light);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
- 
+        .logo-svg {
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .page {
+            display: none;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+        }
+
+        .active-page {
+            display: block;
+        }
+
+        /* Home Page Styles */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(45deg, rgba(0,43,91,0.9), rgba(0,87,146,0.9));
+            color: white;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Companies Page */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .company-card {
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vploy-theme { background: #FFD700; color: #2B2B2B; }
+        .aventuer-theme { background: #1e3799; color: white; }
+        .mirage-theme { background: #2d3436; color: white; }
+        .salt-theme { background: #ff7675; color: white; }
+
+        /* Family Page */
+        .family-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .family-member {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Page */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Designed S Logo -->
+    <svg style="display:none;">
+        <symbol id="s-logo" viewBox="0 0 100 100">
+            <path d="M20 20 Q50 0 80 20 L80 80 Q50 100 20 80 L20 20" fill="#002B5B"/>
+            <path d="M30 30 L50 70 L70 30" stroke="#00BBF0" stroke-width="8" fill="none"/>
+        </symbol>
+    </svg>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <svg class="logo-svg">
+                    <use href="#s-logo"></use>
+                </svg>
+                Sahabyal Group
+            </a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#companies" class="nav-link">Companies</a>
+                <a href="#family" class="nav-link">Family</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
 
+    <!-- Home Page -->
+    <section id="home" class="page active-page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Building Futures Through Innovation</h1>
+                <p>Global conglomerate operating across diverse industries</p>
+            </div>
+        </div>
+    </section>
 
-    </div>
-  </header><!-- End #header -->
+    <!-- Companies Page -->
+    <section id="companies" class="page">
+        <div class="companies-grid">
+            <div class="company-card vploy-theme">
+                <h3>VPLOY</h3>
+                <p>Global Staffing & Business Process Optimization</p>
+                <p>Headquartered in Ontario, serving North America and Europe</p>
+            </div>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container">
-      <h1>Coming Soon</h1>
-      <h2>We're working hard to improve our website and we'll be ready to launch after</h2>
-      <div class="countdown" data-count="2025/03/01" data-template="%d days %h:%m:%s"></div>
+            <div class="company-card aventuer-theme">
+                <h3>La Aventuer</h3>
+                <p>Adventure & Leisure Travel Experts</p>
+                <p>Customized global travel experiences since 2010</p>
+            </div>
 
-              </div>
+            <div class="company-card mirage-theme">
+                <h3>Mirage Photography</h3>
+                <p>Premium Visual Storytelling</p>
+                <p>Serving corporate, fashion, and special events</p>
+            </div>
 
-  <main id="main">
+            <div class="company-card salt-theme">
+                <h3>SALT Events</h3>
+                <p>End-to-End Event Management</p>
+                <p>Creating unforgettable experiences worldwide</p>
+            </div>
+        </div>
+    </section>
 
-   
-  </main><!-- End #main -->
+    <!-- Family Page -->
+    <section id="family" class="page">
+        <div class="family-grid">
+            <div class="family-member">
+                <h3>Sahabzada Hanif Akhnoohi</h3>
+                <p>Senior Naval Veteran</p>
+                <ul>
+                    <li>35+ years distinguished service</li>
+                    <li>Recipient of Sitara-e-Imtiaz (Military)</li>
+                    <li>National defense strategy consultant</li>
+                </ul>
+            </div>
 
+            <div class="family-member">
+                <h3>Tassawar Hanif</h3>
+                <p>General Manager PEL | Secretary General PEMA</p>
+                <ul>
+                    <li>Instrumental in 40% production growth at PEL</li>
+                    <li>Key architect of Electronics Policy 2023</li>
+                </ul>
+            </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+            <div class="family-member">
+                <h3>Sahira Hanif Sahabyal</h3>
+                <p>Service Sector Innovator</p>
+                <ul>
+                    <li>10+ years in premium banking services</li>
+                    <li>Concierge service optimization expert</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>5100 Erin Mills Pkwy Suite I3<br>
+                Mississauga, ON L5M 4Z5<br>
+                Canada</p>
+                <p>Phone: 437-600-4300</p>
+            </div>
 
+            <form class="contact-form" action="https://formspree.io/f/myzkrznl" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Sahabyal Group | info@sahabyal.com</p>
+    </footer>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('href').substring(1);
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active-page');
+                });
+                document.getElementById(pageId).classList.add('active-page');
+            });
+        });
+
+        // Form Submission
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    form.reset();
+                } else {
+                    alert('Error sending message. Please try again.');
+                }
+            } catch (error) {
+                alert('Network error. Please check your connection.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message';
+            }
+        });
+
+        // Initialize home page
+        document.getElementById('home').classList.add('active-page');
+    </script>
 </body>
-
 </html>
